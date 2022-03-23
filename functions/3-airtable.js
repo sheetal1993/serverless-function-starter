@@ -1,8 +1,8 @@
 const Airtable = require('airtable-node');
  
-const airtable = new Airtable({ apiKey: 'keye3G1Eg1tMipodC' })
-  .base('appSHcUYCSR4oCq8l')
-  .table('products')
+const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
+  .base(process.env.AIRTABLE_BASE_ID)
+  .table(process.env.AIRTABLE_TABLE_NAME)
 exports.handler = async (event,context) => {
     try {
         const {records} = airtable.list();
